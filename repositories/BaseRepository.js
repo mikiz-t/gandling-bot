@@ -84,11 +84,11 @@ module.exports = class BaseRepository {
   async delete(fields) {
     try {
       const query = db(this.table);
-
+      
       for (let field in fields) {
         query.where((qb) => {
             if (typeof fields[field] === 'string') {
-              qb.where(field, 'ilike', fields[field])
+              qb.whereRaw(`LOWER(${field}) = LOWER(?)`, [fields[field]])
             } else {
               qb.where({field: fields[field]})
             }
