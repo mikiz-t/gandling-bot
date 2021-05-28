@@ -10,6 +10,11 @@ module.exports = class AddCraft extends Command {
       group: 'crafting',
       memberName: 'add-craft',
       description: 'Add yourself as a crafter of an item',
+      examples: ['!add-craft "Spellstrike Hood" alliance'],
+      throttling: {
+        usages: 1,
+        duration: 3
+      },
       args: [
         {
           key: 'item',

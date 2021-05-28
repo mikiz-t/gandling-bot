@@ -10,6 +10,12 @@ module.exports = class LFCraft extends Command {
       group: 'crafting',
       memberName: 'find-crafter',
       description: 'Find crafters of a given item',
+      aliases: ['lf-craft', 'lf-crafter'],
+      examples: ['!find-crafter "Spellstrike Hood"'],
+      throttling: {
+        usages: 1,
+        duration: 3
+      },
       args: [
         {
           key: 'item',

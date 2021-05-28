@@ -12,6 +12,11 @@ module.exports = class RemoveItem extends Command {
       memberName: 'remove-item',
       description: 'Remove an item to the database',
       guildOnly: true,
+      examples: ['!remove-item "Spellstrike Hood"'],
+      throttling: {
+        usages: 1,
+        duration: 3
+      },
       args: [
         {
           key: 'item',

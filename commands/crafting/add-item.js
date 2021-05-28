@@ -12,6 +12,11 @@ module.exports = class AddItem extends Command {
       memberName: 'add-item',
       description: 'Add an item to the database',
       guildOnly: true,
+      examples: ['!add-item "Spellstrike Hood"'],
+      throttling: {
+        usages: 1,
+        duration: 3
+      },
       args: [
         {
           key: 'item',
@@ -41,7 +46,7 @@ module.exports = class AddItem extends Command {
       //unique constraint violation
       if (err.code === '23505') {
         return message.reply(`"${args.item}" is already in the item database!`)
-      } 
+      }
     }
   }
 };

@@ -10,6 +10,11 @@ module.exports = class RemoveCraft extends Command {
       group: 'crafting',
       memberName: 'remove-craft',
       description: 'Remove yourself as a crafter of an item',
+      examples: ['!remove-craft "Spellstrike Hood" alliance'],
+      throttling: {
+        usages: 1,
+        duration: 3
+      },
       args: [
         {
           key: 'item',

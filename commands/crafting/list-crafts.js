@@ -1,6 +1,5 @@
 const { Command } = require('discord.js-commando');
 const {MessageEmbed} = require("discord.js");
-const ItemRepository = require('./../../repositories/ItemRepository');
 const CrafterRepository = require('./../../repositories/CrafterRepository');
 
 module.exports = class AddCraft extends Command {
@@ -10,6 +9,11 @@ module.exports = class AddCraft extends Command {
       group: 'crafting',
       memberName: 'list-crafts',
       description: 'List all items that a specific person can craft',
+      examples: ['!list-crafts @Mikiz'],
+      throttling: {
+        usages: 1,
+        duration: 3
+      },
       args: [
         {
           key: 'crafter',
