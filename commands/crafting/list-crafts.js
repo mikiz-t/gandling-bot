@@ -29,7 +29,11 @@ module.exports = class AddCraft extends Command {
 
     const crafts = await CrafterRepo.find('crafter', args.crafter.user.id);
 
-    const embed = new MessageEmbed().setTitle(`${args.crafter.nickname} can craft:`);
+    console.log(args.crafter)
+
+    const embed = new MessageEmbed()
+                    .setTitle(`${args.crafter.displayName} can craft:`)
+                    .setThumbnail(args.crafter.user.displayAvatarURL());
 
     let hordeCrafts = [];
     let allianceCrafts = [];
