@@ -29,8 +29,6 @@ module.exports = class AddCraft extends Command {
 
     const crafts = await CrafterRepo.find('crafter', args.crafter.user.id);
 
-    console.log(args.crafter)
-
     const embed = new MessageEmbed()
                     .setTitle(`${args.crafter.displayName} can craft:`)
                     .setThumbnail(args.crafter.user.displayAvatarURL());
